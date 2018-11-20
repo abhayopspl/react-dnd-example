@@ -13,6 +13,8 @@ const Title = Styled.h3`
 `;
 const TaskList = Styled.div`
   padding: 8px;
+  transition: background-color 0.5s ease-in-out;
+  background-color: ${props => (props.isDraggingOver ? "skyblue" : "white")};
 `;
 //Step two is to make the DIV where the DnD is to be targetted as a Droppable.
 //Droppable required one compulsory prop that is the DroppableID.
@@ -30,7 +32,11 @@ export default class Column extends React.Component {
         <Title>{this.props.column.title}</Title>
         <Droppable droppableId={this.props.column.id}>
           {(provided, snapshot) => (
-            <TaskList ref={provided.innerRef} {...provided.droppableProps}>
+            <TaskList
+              ref={provided.innerRef}
+              {...provided.droppableProps}
+              isDraggingOver={snapshot.isDraggingOver}
+            >
               {this.props.tasks.map((task, index) => (
                 <Task index={index} key={task.id} task={task} />
               ))}
