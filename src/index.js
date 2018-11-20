@@ -6,6 +6,30 @@ import Column from "./columnComponent";
 import { DragDropContext } from "react-beautiful-dnd";
 import Styled from "styled-components";
 
+/*
+const start = {
+  draggableId: "ID",
+  type: "TYPE",
+  source: {
+    droppableId: "ID",
+    index: 0
+  }
+}
+
+const update = {
+  ...start,
+  destination: {
+    droppableId: "ID",
+    index: 1
+  }
+}
+
+const result = {
+  ...update,
+  reason: "DROP"
+}
+THESE VALUES CAN BE USED TO UPDATE THE GLOBAL STYLES Inside the onDragStart and onDragEnd functions
+*/
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -68,6 +92,10 @@ class App extends React.Component {
       }
     };
     this.setState(newState);
+  };
+
+  onDragStart = () => {
+    //update color and CSS here
   };
 
   //Step I to implement the react-beautiful-dnd is to make sure that the DragDropContext is added to the root of the component

@@ -24,6 +24,7 @@ const TaskList = Styled.div`
 //provided object has a property called droppableProps. These props must be applied ot the component that should work as the Droppable. For additional props related to these, check the documentation.
 //provided object has a property called innerRef which is used to return the DOM node of the droppable component.
 //Last thing to do is to insert the placeholder. Placeholder is  needed to increase the space in the react component during the drag. The placeholder needs to be added as a child of the component that you designate as a Droppable.
+
 export default class Column extends React.Component {
   render() {
     console.log(this.props);
