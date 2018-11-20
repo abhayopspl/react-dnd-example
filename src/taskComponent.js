@@ -13,6 +13,7 @@ const Container = Styled.div`
 const Handle = Styled.div`
   width: 20px;
   height: 20px;
+  align-self: center;
   background: url('https://firebasestorage.googleapis.com/v0/b/aglivetest.appspot.com/o/noun_drag_1654390.svg?alt=media&token=11f3a464-dee4-4a2b-8e74-f7e3a71716f7') no-repeat;
   background-size: cover;
   background-color: lightgrey;

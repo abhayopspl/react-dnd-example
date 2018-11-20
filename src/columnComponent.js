@@ -8,12 +8,19 @@ const Container = Styled.div`
   border: 1px ridge lightgrey;
   border-radius: 5px;
   background: white;
+  width: 300px;
+
+  display: flex;
+  flex-direction: column;
+
 `;
 const Title = Styled.h3`
   padding: 8px;
 `;
 const TaskList = Styled.div`
   padding: 8px;
+  flex-grow: 1;
+  min-height: 120px;
   transition: background-color 0.5s ease-in-out;
   background-color: ${props => (props.isDraggingOver ? "skyblue" : "white")};
 `;
