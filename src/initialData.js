@@ -1,18 +1,18 @@
-export const initialData = {
+export default {
   tasks: {
     "task-1": {
       id: "task-1",
       content: "Cleanse the world"
     },
-    "task-1": {
+    "task-2": {
       id: "task-2",
       content: "Juice the Jews"
     },
-    "task-1": {
+    "task-3": {
       id: "task-3",
-      content: "Khazars are Aktimoshiv"
+      content: "Khazars are Ashqnazis"
     },
-    "task-1": {
+    "task-4": {
       id: "task-4",
       content: "Need not wonder"
     }
