@@ -7,6 +7,7 @@ const Container = Styled.div`
   margin: 8px;
   border: 1px ridge lightgrey;
   border-radius: 5px;
+  background: white;
 `;
 const Title = Styled.h3`
   padding: 8px;

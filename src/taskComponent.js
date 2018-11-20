@@ -7,8 +7,19 @@ const Container = Styled.div`
   border-radius: 2px;
   padding: 8px;
   margin-bottom: 8px;
+  border-radius: 10px;
   background: ${props => (props.isDragging ? "lightyellow" : "white")};
 `;
+const Handle = Styled.div`
+  width: 20px;
+  height: 20px;
+  background: url('https://firebasestorage.googleapis.com/v0/b/aglivetest.appspot.com/o/noun_drag_1654390.svg?alt=media&token=11f3a464-dee4-4a2b-8e74-f7e3a71716f7') no-repeat;
+  background-size: cover;
+  background-color: lightgrey;
+  border-radius: 10px;
+  float: right;
+`;
+
 //Step III would be to implement the lowest component iin the DND as the Draggable component
 //Draggable has two props requirement.
 //DraggableID unique across the context
@@ -33,10 +44,14 @@ export default class Task extends React.Component {
         {(provided, snapshot) => (
           <Container
             {...provided.draggableProps}
-            {...provided.dragHandleProps}
             ref={provided.innerRef}
             isDragging={snapshot.isDragging}
           >
+            {/*
+            If dragHandleProps is passed only to the handle then only that can be used to drag the entire draggable
+            This is very useful if you want to limit the user to only use the handle to move the components
+           */}
+            <Handle {...provided.dragHandleProps} />
             {this.props.task.content}
           </Container>
         )}
