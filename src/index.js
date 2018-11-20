@@ -30,8 +30,45 @@ class App extends React.Component {
    *        index: 1
    *    }
    * }
+   * The destination can be null at times when the drop is outside the list
    */
-  onDragEnd = result => {};
+  onDragEnd = result => {
+    let { draggableId, source, destination } = result;
+
+    if (!destination) {
+      //This means that the drop is made outside the list
+      //do nothing
+      return;
+    }
+
+    if (
+      destination.droppableId === source.droppableId &&
+      destination.index === source.index
+    ) {
+      //If this is true it means the user dropped the item at the same position where it started
+      //Do nothing
+      return;
+    }
+
+    const column = this.state.columns[source.droppableId];
+    const newTaskIds = Array.from(column.tasksIds);
+    newTaskIds.splice(source.index, 1);
+    newTaskIds.splice(destination.index, 0, draggableId);
+    console.log(newTaskIds);
+    const newColumn = {
+      ...column,
+      tasksIds: newTaskIds
+    };
+
+    const newState = {
+      ...this.state,
+      columns: {
+        ...this.state.columns,
+        [newColumn.id]: newColumn
+      }
+    };
+    this.setState(newState);
+  };
 
   //Step I to implement the react-beautiful-dnd is to make sure that the DragDropContext is added to the root of the component
   //DragDropContext requried onDragEnd func to be passed as a prop. This functon is responsible for handling what happens when a draggable is dropped in the droppable. This also gets triggered if the draggable is dropped outside of any droppable.
